@@ -6,33 +6,8 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { EVENTS } from './consts'
-
-function navigate(href) {
-	window.history.pushState({}, '', href)
-	// create custom event
-	const navigationEvent = new Event(EVENTS.PUSHSTATE)
-	window.dispatchEvent(navigationEvent)
-}
-
-function HomePage() {
-	return (
-		<>
-			<h1>Home</h1>
-			<p>Example page for create a React Router Clone.</p>
-			<button onClick={() => navigate('/about')}>Go to About us</button>
-		</>
-	)
-}
-
-function AboutPage() {
-	return (
-		<>
-			<h1>About</h1>
-			<p>Hey im Nando, and im creating a React Router Clone.</p>
-			<button onClick={() => navigate('/')}>Go Home</button>
-		</>
-	)
-}
+import HomePage from './pages/Home'
+import AboutPage from './pages/About'
 
 function App() {
 	const [currentPath, setCurrentPath] = useState(window.location.pathname)
