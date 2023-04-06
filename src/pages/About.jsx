@@ -1,7 +1,3 @@
-/* eslint-disable space-before-function-paren */
-/* eslint-disable indent */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-tabs */
 import { Link } from '../Link'
 
 export default function AboutPage() {

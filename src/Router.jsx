@@ -1,15 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable space-before-function-paren */
-/* eslint-disable indent */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-tabs */
-
 import { useState, useEffect } from 'react'
 import { EVENTS } from './consts'
 
 export function Router({
 	routes = [],
-	defaulComponent: DefaultComponent = null
+	defaulComponent: DefaultComponent = null,
 }) {
 	const [currentPath, setCurrentPath] = useState(window.location.pathname)
 

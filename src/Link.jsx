@@ -1,9 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable space-before-function-paren */
-/* eslint-disable indent */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-tabs */
-
 import { EVENTS } from './consts'
 
 export function navigate(href) {
