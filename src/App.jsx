@@ -4,6 +4,8 @@ import { Router } from './Router'
 
 import HomePage from './pages/Home'
 import AboutPage from './pages/About'
+import { Page404 } from './pages/Page404'
+import { Link } from './Link'
 
 const appRoutes = [
 	{
@@ -19,7 +21,7 @@ const appRoutes = [
 function App() {
 	return (
 		<main>
-			<Router routes={appRoutes} />
+			<Router routes={appRoutes} defaulComponent={Page404} />
 		</main>
 	)
 }
