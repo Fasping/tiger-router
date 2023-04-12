@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Children } from 'react'
 import { EVENTS } from './consts'
 import { match } from 'path-to-regexp'
 
 export function Router({
+	children,
 	routes = [],
 	defaulComponent: DefaultComponent = null,
 }) {
@@ -24,7 +25,17 @@ export function Router({
 
 	let routeParams = {}
 
-	const Page = routes.find(({ path }) => {
+	//add routes from children <Route />> components
+	const routesFromChildren = Children.map(children, ({ props, type }) => {
+		const { name } = type
+		const isRoute = name === 'Route'
+
+		return isRoute ? props : null
+	}).filter(Boolean)
+
+	const routesToUse = routes.concat(routesFromChildren)
+
+	const Page = routesToUse.find(({ path }) => {
 		if (path === currentPath) return true
 
 		// Use path-to-regex for detect dinamic routes like /serach/:query <- query is a dinamic route
