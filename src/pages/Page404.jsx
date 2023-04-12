@@ -1,6 +1,6 @@
 import { Link } from '../Link'
 
-export function Page404() {
+export default function Page404() {
 	return (
 		<>
 			<div>
