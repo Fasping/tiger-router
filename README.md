@@ -1,5 +1,5 @@
  # 🐯 Tiger Router 🐯
-[![Licencia MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Licencia ISC](https://img.shields.io/badge/License-ISC-green.svg)](https://opensource.org/licenses/ISC)
 ![Versión](https://img.shields.io/npm/v/tiger-router)
 
 [Web](https://www.npmjs.com/package/tiger-router)
