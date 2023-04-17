@@ -1,7 +1,3 @@
-<div align="center">
- ( work in progress )
- </div>
- <br />
  <div align="center">
  🐯 Tiger Router 🐯 
  </div>
