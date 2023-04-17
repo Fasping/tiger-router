@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "eslint": "^8.0.1",
@@ -15,6 +17,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^9.2.0",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
@@ -24,7 +28,9 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "happy-dom": "^9.8.0",
     "prettier": "^2.8.7",
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "vitest": "^0.30.1"
   }
 }
