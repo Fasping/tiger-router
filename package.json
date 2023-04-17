@@ -1,6 +1,6 @@
 {
   "name": "tiger-router",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",
