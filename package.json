@@ -1,6 +1,15 @@
 {
   "name": "tiger-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "description": "A minimalistic routing for React. Nothing else",
+   "keywords": [
+    "react",
+    "minimalistic",
+    "router",
+    "tiny",
+    "routing",
+    "hooks"
+  ],
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -20,6 +29,8 @@
     "test:watch": "vitest",
     "test:ui": "vitest --ui"
   },
+  "author": "Fernando Cases <nandocasesgarcia@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "path-to-regexp": "6.2.1"
   },
