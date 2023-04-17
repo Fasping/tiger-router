@@ -69,7 +69,7 @@ export default Navbar;
 
 # Contributing
 
-If you find any bugs or issues with Tiger Router, please feel free to contribute to the project by submitting a pull request or creating an issue on GitHub.
+If you would like to help us, please take a moment to read the [CONTRIBUTING.md](https://github.com/Fasping/tiger-router/blob/main/CONTRIBUTING.md) file. You will find useful information there on how to effectively contribute and follow our style guides. We hope you enjoy collaborating with us!
 
-## License
-Tiger Router is licensed under the MIT license.
+
+<h3> Cheers 🍻 !!! </h3>
