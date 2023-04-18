@@ -8,7 +8,7 @@ export function navigate(href) {
 }
 
 export function Link({ target, to, ...props }) {
-	const handelClick = event => {
+	const handleClick = event => {
 		const isMainEvent = event.button === 0 // primary click
 		const isModifiedEvent =
 			event.metaKey || event.altKey || event.ctrlKey || event.shiftKey
@@ -20,5 +20,5 @@ export function Link({ target, to, ...props }) {
 		}
 	}
 
-	return <a onClick={handelClick} href={to} target={target} {...props} />
+	return <a onClick={handleClick} href={to} target={target} {...props} />
 }
