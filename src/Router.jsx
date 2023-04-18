@@ -24,24 +24,19 @@ export function Router({
 		}
 	}, [])
 
+	const routesFromChildren = Children.toArray(children)
+		.filter(child => child.type.name === 'Route')
+		.map(child => child.props)
+
+	const routesToUse = [...routes, ...routesFromChildren]
+
 	let routeParams = {}
-
-	//add routes from children <Route />> components
-	const routesFromChildren = Children.map(children, ({ props, type }) => {
-		const { name } = type
-		const isRoute = name === 'Route'
-
-		return isRoute ? props : null
-	}).filter(Boolean)
-
-	const routesToUse = routes.concat(routesFromChildren).filter(Boolean)
 
 	const Page = routesToUse.find(({ path }) => {
 		if (path === currentPath) return true
 
-		// Use path-to-regex for detect dinamic routes like /serach/:query <- query is a dinamic route
-		const macherUrl = match(path, { decode: decodeURIComponent })
-		const matched = macherUrl(currentPath)
+		const matcher = match(path, { decode: decodeURIComponent })
+		const matched = matcher(currentPath)
 		if (!matched) return false
 
 		routeParams = matched.params
