@@ -13,9 +13,11 @@ Tiger Router allows you to use Router, Route, and Link components in your projec
 
 ## Installation
 
-You can install Tiger Router using npm:
+You can install Tiger Router using npm or yarn:
 
 `npm install tiger-router`
+
+`yarn add tiger-router`
 
 ## Getting Started
 
