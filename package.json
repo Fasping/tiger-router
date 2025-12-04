@@ -2,7 +2,7 @@
   "name": "tiger-router",
   "version": "1.0.5",
   "description": "A minimalistic routing for React. Nothing else",
-   "keywords": [
+  "keywords": [
     "react",
     "minimalistic",
     "router",
@@ -49,6 +49,7 @@
     "@vitest/ui": "0.28.5",
     "happy-dom": "8.7.1",
     "standard": "17.0.0",
+    "typescript": "^5.9.3",
     "vite": "4.1.0",
     "vitest": "0.28.5"
   },
