@@ -1,4 +1,4 @@
-import { Link } from '../Link'
+import { Link, useParams } from '../index'
 
 const i18n: Record<string, { title: string; button: string; description: string }> = {
 	es: {
@@ -17,8 +17,9 @@ const useI18n = (lang: string) => {
 	return i18n[lang] || i18n.en
 }
 
-export default function AboutPage({ routeParams }: { routeParams: any }) {
-	const i18n = useI18n(routeParams.lang ?? 'es')
+export default function AboutPage() {
+	const params = useParams()
+	const i18n = useI18n(params.lang ?? 'es')
 
 	return (
 		<>
