@@ -12,20 +12,26 @@
   ],
   "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsup src/index.tsx --format cjs,esm --dts --out-dir dist",
-    "prepare": "swc ./src/*.jsx -d lib && rm lib/App.js lib/main.js lib/Router.test.js && cp src/*.js lib",
+    "prepare": "npm run build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -33,9 +39,6 @@
   },
   "author": "Fernando Cases <nandocasesgarcia@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "path-to-regexp": "6.2.1"
-  },
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
