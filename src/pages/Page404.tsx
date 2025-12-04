@@ -1,4 +1,4 @@
-import { Link } from '../Link'
+import { Link } from '../index'
 
 export default function Page404() {
 	return (

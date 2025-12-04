@@ -5,76 +5,109 @@
 
 [Web](https://www.npmjs.com/package/tiger-router)
 
-Introducing Tiger Router, the sleek and minimalist routing solution for React. Say goodbye to bloated and complicated routing libraries - Tiger Router offers only the essentials for seamless navigation within your React application. With its intuitive and user-friendly interface, you can easily define your routes and render your components with just a few lines of code. So why settle for anything less? Choose Tiger Router for a streamlined routing experience that's truly roar-some. 🐯
+## 2025 Update - v2.0.0
 
-Tiger Router allows you to use Router, Route, and Link components in your projects.
+Tiger Router is a **minimalist routing library for React**, now fully rewritten in **TypeScript** with complete type definitions. It provides a lightweight, framework-agnostic core with modern React bindings.
+
+Unlike heavyweight alternatives, Tiger Router focuses on simplicity and essential routing features without the bloat.
+
+## Features
+
+- ✅ **TypeScript First** - Full type safety with generated `.d.ts` files
+- ✅ **Minimalist Core** - Framework-agnostic history and route matching
+- ✅ **Modern React Hooks** - `useLocation`, `useNavigate`, `useParams`, `useRouteMatch`
+- ✅ **Tiny Bundle** - Keep your app lightweight
+- ✅ **ESM & CJS** - Works with modern and legacy build systems
 
 ## Installation
 
-You can install Tiger Router using npm, yarn or pnpm:
-
-`npm install tiger-router`
-
-`yarn add tiger-router`
-
-`pnpm install tiger-router`
-
-## Getting Started
-
-To use Tiger Router in your project, follow these steps:
-
-1. Import the Router component from the tiger-router package:
-
-```js
-import { Router } from 'tiger-router'
+```bash
+npm install tiger-router
+# or
+yarn add tiger-router
+# or
+pnpm install tiger-router
 ```
 
-2. Wrap your application's components with the Router component, passing in the URL path and component to render as props:
+## Quick Start
 
-```js
-import { Router, Route } from 'tiger-router'
-import Home from './components/Home'
-import About from './components/About'
+```typescript
+import { Router, Route, Link, useParams } from "tiger-router";
 
-function App() {
-	return (
-		<Router>
-			<Route path='/' component={Home} />
-			<Route path='/about' component={About} />
-		</Router>
-	)
+function User() {
+  const params = useParams();
+  return <div>User ID: {params.id}</div>;
 }
 
-export default App
-```
+export function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/users/123">User 123</Link>
+      </nav>
 
-3. Use the Link component to navigate between routes:
-
-```js
-import { Link } from 'tiger-router'
-
-function Navbar() {
-	return (
-		<nav>
-			<ul>
-				<li>
-					<Link to='/'>Home</Link>
-				</li>
-				<li>
-					<Link to='/about'>About</Link>
-				</li>
-			</ul>
-		</nav>
-	)
+      <Route path="/" element={<div>Home</div>} />
+      <Route path="/users/:id" element={<User />} />
+    </Router>
+  );
 }
-
-export default Navbar
 ```
 
-<h3>That's it! You should now be able to use Tiger Router in your project!</h3>
+## API Reference
 
-# Contributing
+### `<Router>`
 
-If you would like to help us, please take a moment to read the [CONTRIBUTING.md](https://github.com/Fasping/tiger-router/blob/main/CONTRIBUTING.md) file. You will find useful information there on how to effectively contribute and follow our style guides. We hope you enjoy collaborating with us!
+The main router component that manages navigation state.
 
-<h3> Cheers 🍻 !!! </h3>
+**Props:**
+- `mode?: 'history' | 'hash'` - Routing mode (default: `'history'`)
+- `children: ReactNode` - Child routes and components
+
+### `<Route>`
+
+Renders a component when the path matches.
+
+**Props:**
+- `path: string` - URL pattern (supports `:param` syntax)
+- `element?: ReactNode` - Component to render on match
+- `children?: ReactNode` - Alternative to `element`
+
+### `<Link>`
+
+Navigation component that prevents full page reloads.
+
+**Props:**
+- `to: string` - Target path
+- `children: ReactNode` - Link content
+- All standard `<a>` attributes
+
+### Hooks
+
+#### `useLocation()`
+Returns the current location path.
+
+#### `useNavigate()`
+Returns a function to programmatically navigate.
+
+#### `useParams()`
+Returns route parameters as an object.
+
+#### `useRouteMatch(path: string)`
+Returns `true` if the given path matches the current location.
+
+## Philosophy
+
+Tiger Router is intentionally minimal. It doesn't include:
+- Data loaders
+- Complex nested routing
+- Route guards
+- Lazy loading utilities
+
+If you need these features, consider React Router. If you want simplicity, Tiger Router is for you. 🐯
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/Fasping/tiger-router/blob/main/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+### Cheers 🍻 !!!
