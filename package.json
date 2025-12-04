@@ -1,6 +1,6 @@
 {
   "name": "tiger-router",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A minimalistic routing for React. Nothing else",
   "keywords": [
     "react",
