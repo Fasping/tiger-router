@@ -8,8 +8,8 @@ import Page404 from './pages/Page404'
 import { Router } from './Router'
 import { Route } from './Route'
 
-const LazyHomePage = lazy(() => import('./pages/Home.jsx'))
-const LazyAboutPage = lazy(() => import('./pages/About.jsx'))
+const LazyHomePage = lazy(() => import('./pages/Home'))
+const LazyAboutPage = lazy(() => import('./pages/About'))
 
 const appRoutes = [
 	{
@@ -26,7 +26,7 @@ function App() {
 	return (
 		<main>
 			<Suspense fallback={<div>Loading ...</div>}>
-				<Router routes={appRoutes} defaulComponent={Page404}>
+				<Router routes={appRoutes} defaultComponent={Page404}>
 					<Route path='/' Component={LazyHomePage} />
 					<Route path='/about' Component={LazyAboutPage} />
 				</Router>

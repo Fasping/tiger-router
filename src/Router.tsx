@@ -7,6 +7,10 @@ export function Router({
 	children,
 	routes = [],
 	defaultComponent: DefaultComponent = () => <h1>404</h1>,
+}: {
+	children?: any
+	routes?: any[]
+	defaultComponent?: any
 }) {
 	const [currentPath, setCurrentPath] = useState(getCurrentPath())
 
@@ -25,8 +29,8 @@ export function Router({
 	}, [])
 
 	const routesFromChildren = Children.toArray(children)
-		.filter(child => child.type.name === 'Route')
-		.map(child => child.props)
+		.filter((child: any) => child.type.name === 'Route')
+		.map((child: any) => child.props)
 
 	const routesToUse = [...routes, ...routesFromChildren]
 

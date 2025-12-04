@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function SearchPage({ routeParams }) {
+export default function SearchPage({ routeParams }: { routeParams: any }) {
 	useEffect(() => {
 		document.title = `Has buscado ${routeParams.query}`
 	}, [])
