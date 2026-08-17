@@ -1,67 +1,112 @@
 {
-  "name": "tiger-router",
-  "version": "2.0.0",
-  "description": "A minimalistic routing for React. Nothing else",
-  "keywords": [
-    "react",
-    "minimalistic",
-    "router",
-    "tiny",
-    "routing",
-    "hooks"
-  ],
-  "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+    "name": "tiger-router",
+    "version": "3.0.0",
+    "description": "Minimalist routing for React. Tiny, typed, zero dependencies.",
+    "keywords": [
+        "react",
+        "router",
+        "routing",
+        "minimalistic",
+        "tiny",
+        "hooks",
+        "typescript",
+        "react-19"
+    ],
+    "homepage": "https://github.com/Fasping/tiger-router#readme",
+    "bugs": "https://github.com/Fasping/tiger-router/issues",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Fasping/tiger-router.git"
     },
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "tsup src/index.tsx --format cjs,esm --dts --out-dir dist",
-    "prepare": "npm run build",
-    "preview": "vite preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui"
-  },
-  "author": "Fernando Cases <nandocasesgarcia@gmail.com>",
-  "license": "ISC",
-  "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@swc/cli": "0.1.62",
-    "@swc/core": "1.3.36",
-    "@testing-library/dom": "9.0.0",
-    "@testing-library/react": "14.0.0",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "@vitejs/plugin-react-swc": "3.0.0",
-    "@vitest/ui": "0.28.5",
-    "happy-dom": "8.7.1",
-    "standard": "17.0.0",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "vite": "4.1.0",
-    "vitest": "0.28.5"
-  },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
-  }
+    "license": "ISC",
+    "author": "Fernando Cases <nandocasesgarcia@gmail.com>",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "preview": "vite preview",
+        "build": "tsup",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "test:integration": "node scripts/integration-test.mjs",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "format": "biome format --write .",
+        "size": "size-limit",
+        "check:package": "publint && attw --pack .",
+        "verify": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:package && npm run size && npm run test:integration",
+        "prepublishOnly": "npm run verify"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0 || ^19.0.0"
+    },
+    "devDependencies": {
+        "@arethetypeswrong/cli": "^0.18.5",
+        "@biomejs/biome": "^2.5.8",
+        "@size-limit/preset-small-lib": "^11.2.0",
+        "@testing-library/dom": "^10.4.1",
+        "@testing-library/react": "^16.3.2",
+        "@types/react": "^19.2.0",
+        "@types/react-dom": "^19.2.0",
+        "@vitejs/plugin-react": "^6.0.5",
+        "@vitest/coverage-v8": "^4.1.10",
+        "happy-dom": "^20.11.2",
+        "publint": "^0.3.23",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.1",
+        "typescript": "^5.9.3",
+        "vite": "^8.2.1",
+        "vitest": "^4.1.10"
+    },
+    "size-limit": [
+        {
+            "name": "everything",
+            "path": "dist/index.js",
+            "limit": "3.5 kB",
+            "ignore": [
+                "react"
+            ]
+        },
+        {
+            "name": "typical app (Router, Routes, Route, Link, hooks)",
+            "path": "dist/index.js",
+            "import": "{ Router, Routes, Route, Link, useParams, useNavigate }",
+            "limit": "3 kB",
+            "ignore": [
+                "react"
+            ]
+        }
+    ],
+    "engines": {
+        "node": ">=20"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }

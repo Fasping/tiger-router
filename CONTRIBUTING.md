@@ -13,14 +13,53 @@ There are many ways you can contribute to Tiger Router, including:
 - Improving the test coverage of the codebase.
 - Submitting code changes and bug fixes.
 
+## Getting Started 🚀
+
+```bash
+npm install
+npm run dev     # demo app at http://localhost:5173
+npm test        # unit + render tests (watch mode: npm run test:watch)
+npm run verify  # everything CI runs
+```
+
+Requires Node 20 or newer.
+
+### Project layout
+
+```
+src/
+  core/     framework-agnostic: history store, route matcher, path helpers
+  react/    React bindings: Router, Routes, Route, Link, NavLink, Navigate, hooks
+  demo/     the local playground you see with npm run dev
+  index.ts  public API — anything not exported here is internal
+```
+
+The rule of thumb: logic that does not need React lives in `core/` and is unit
+tested there; `react/` stays as thin as possible and is covered by render tests.
+
+### Useful scripts
+
+| Script                  | What it does                                        |
+| ----------------------- | --------------------------------------------------- |
+| `npm run lint`          | Biome lint + format check                           |
+| `npm run lint:fix`      | Apply every safe fix                                |
+| `npm run typecheck`     | `tsc --noEmit`                                      |
+| `npm run test:coverage` | Tests with coverage thresholds                      |
+| `npm run build`         | Build `dist/` with tsup (ESM + CJS + types)         |
+| `npm run check:package` | `publint` + `attw` on the packed tarball            |
+| `npm run size`          | Bundle-size budget                                  |
+
 ## Submitting Changes 🛠
 
 Before you submit a pull request, please make sure to do the following:
 
-- Ensure that your code follows the style guide for the project.
+- Run `npm run verify` — it runs lint, types, tests, build and the size budget.
 - Write tests for any new code you have added.
-- Make sure that all tests pass.
+- Add an entry to `CHANGELOG.md` under an `Unreleased` heading.
 - Update the documentation to reflect any changes (recommended).
+
+Formatting is handled by [Biome](https://biomejs.dev), so there is no style debate:
+run `npm run lint:fix` and move on.
 
 ## Pull Request Process 🚀
 
