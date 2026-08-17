@@ -3,6 +3,13 @@
 All notable changes to this project are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [3.0.1] - 2026-08-17
+
+### Changed
+
+- Redesigned the README for faster onboarding on GitHub and npm, with clearer
+  compatibility information, navigation, project-scope guidance and links.
+
 ## [3.0.0] - 2026-08-17
 
 A full rewrite of the internals. The API surface stays small, but the router is
