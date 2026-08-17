@@ -1,7 +1,7 @@
 name: Release
 
-# Publishes to npm when you push a tag like v3.0.0.
-# Requires an npm automation token stored as the NPM_TOKEN repository secret.
+# Publishes to npm through OIDC when you push a tag like v3.0.1.
+# npm trusts this exact GitHub repository and workflow; no long-lived token is used.
 on:
   push:
     tags: ['v*']
@@ -13,11 +13,11 @@ jobs:
       contents: read
       id-token: write # enables npm provenance
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           registry-url: https://registry.npmjs.org
 
@@ -25,6 +25,4 @@ jobs:
       - run: npm run verify
 
       - name: Publish
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public

@@ -1,7 +1,7 @@
 {
     "name": "tiger-router",
-    "version": "3.0.0",
-    "description": "Minimalist routing for React. Tiny, typed, zero dependencies.",
+    "version": "3.0.1",
+    "description": "A tiny, typed and concurrent-safe router for React 18 and 19, with zero runtime dependencies.",
     "keywords": [
         "react",
         "router",
@@ -10,7 +10,9 @@
         "tiny",
         "hooks",
         "typescript",
-        "react-19"
+        "react-19",
+        "spa",
+        "client-side-routing"
     ],
     "homepage": "https://github.com/Fasping/tiger-router#readme",
     "bugs": "https://github.com/Fasping/tiger-router/issues",

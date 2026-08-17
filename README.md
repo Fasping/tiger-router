@@ -1,10 +1,23 @@
+<div align="center">
+
 # 🐯 Tiger Router
 
-**Minimalist routing for React. Tiny, typed, zero dependencies.**
+### A tiny, typed router for React applications that do not need a framework.
 
-[![npm](https://img.shields.io/npm/v/tiger-router)](https://www.npmjs.com/package/tiger-router)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/tiger-router)](https://bundlephobia.com/package/tiger-router)
-[![License: ISC](https://img.shields.io/badge/License-ISC-green.svg)](https://opensource.org/licenses/ISC)
+[![npm version](https://img.shields.io/npm/v/tiger-router?color=cb3837)](https://www.npmjs.com/package/tiger-router)
+[![CI](https://github.com/Fasping/tiger-router/actions/workflows/ci.yml/badge.svg)](https://github.com/Fasping/tiger-router/actions/workflows/ci.yml)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/tiger-router?label=min%2Bgzip)](https://bundlephobia.com/package/tiger-router)
+[![React 18 and 19](https://img.shields.io/badge/React-18%20%7C%2019-61dafb)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-first-3178c6)](https://www.typescriptlang.org/)
+[![License: ISC](https://img.shields.io/badge/license-ISC-green)](https://github.com/Fasping/tiger-router/blob/main/LICENSE)
+
+**Zero runtime dependencies · Concurrent-safe · ESM + CJS · RSC-ready**
+
+[Quick start](#quick-start) · [Why Tiger Router?](#why-tiger-router) · [Recipes](#recipes) · [API](#api) · [Migrate from v2](#migrating-from-v2) · [Changelog](https://github.com/Fasping/tiger-router/blob/main/CHANGELOG.md)
+
+</div>
+
+## Quick start
 
 ```bash
 npm install tiger-router
@@ -30,20 +43,29 @@ export default function App() {
 }
 ```
 
-That's the whole mental model: **`Router`** holds the state, **`Routes`** picks one, **`Route`** describes a page, **`Link`** moves between them.
+That is the whole mental model: **`Router`** holds the state, **`Routes`** picks one match, **`Route`** describes a page, and **`Link`** navigates without a reload.
 
 ---
 
-## Why this router
+## Why Tiger Router?
 
 - **~2.6 kB** brotli for a typical app, **zero runtime dependencies**
 - **React 18 and 19**, built on `useSyncExternalStore` — safe under concurrent rendering
 - **TypeScript first**, with typed params: `useParams<{ id: string }>()`
 - **Works in RSC setups** (Next.js App Router) — ships the `'use client'` directive
-- **6 components, 6 hooks.** You can read the entire source in ten minutes
+- **6 components, 6 hooks.** A deliberately small API you can learn in minutes
 - **No config, no route objects, no build step**
 
-Not included on purpose: data loaders, route guards, code-splitting helpers. Those belong to your app (or to [React Router](https://reactrouter.com) / [TanStack Router](https://tanstack.com/router)).
+### Is it the right router for your app?
+
+| Choose Tiger Router when… | Choose a full routing framework when… |
+| --- | --- |
+| You want client-side routing with a very small API | You need route-level loaders, actions or middleware |
+| Bundle size and zero dependencies matter | You want file-based route generation |
+| You prefer JSX routes and standard browser APIs | You need built-in caching or search-param schemas |
+| You are building an SPA, widget, prototype or small product | Routing is the architectural core of a large application |
+
+Tiger Router intentionally does not include data loaders, route guards or custom code-splitting APIs. Compose those with React, or use [React Router](https://reactrouter.com/) or [TanStack Router](https://tanstack.com/router) when you need a full routing framework.
 
 ---
 
@@ -333,6 +355,6 @@ npm test          # unit + render tests
 npm run verify    # lint, types, tests, build, package checks, size budget
 ```
 
-Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
+Contributions are welcome — read the [contribution guide](https://github.com/Fasping/tiger-router/blob/main/CONTRIBUTING.md), [report a bug](https://github.com/Fasping/tiger-router/issues/new) or start a discussion in an issue.
 
 ### Cheers 🍻
