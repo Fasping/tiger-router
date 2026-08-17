@@ -296,7 +296,7 @@ The published files carry the `'use client'` directive, so importing Tiger Route
 | `useParams<T>()`       | Params of this route and its ancestors                        |
 | `useSearchParams()`    | `[URLSearchParams, setSearchParams]`                          |
 | `useMatch(pattern)`    | The match (with `params`) or `null`                           |
-| `useRouter()`          | `{ location, history, base }` — escape hatch                  |
+| `useRouter()`          | `{ location, history, basename, routeBase }` — escape hatch    |
 
 ### Core (no React)
 

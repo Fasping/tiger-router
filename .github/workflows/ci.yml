@@ -41,6 +41,9 @@ jobs:
       - name: Bundle size budget
         run: npm run size
 
+      - name: Integration test (installs the packed tarball)
+        run: npm run test:integration
+
   compatibility:
     name: React ${{ matrix.react }}
     runs-on: ubuntu-latest

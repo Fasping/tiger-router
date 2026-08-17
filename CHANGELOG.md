@@ -19,7 +19,9 @@ handful of features every real app needs.
   exact matching and function forms of `className` / `style` / `children`.
 - **`<Navigate>`** — declarative redirect, ideal for auth guards.
 - **`useSearchParams()`** — read and write the query string as state.
-- **`useRouter()`** — escape hatch exposing `{ location, history, base }`.
+- **`useRouter()`** — escape hatch exposing `{ location, history, basename, routeBase }`.
+  `basename` is where the app is mounted (`<Router base>`); `routeBase` is the pathname
+  the enclosing route consumed, which is what relative links resolve against.
 - **Pattern syntax** — optional params (`:page?`) and splats (`*`) alongside `:param`.
 - **`memory` mode** plus `initialPath`, so tests and SSR never touch `window`.
 - **`base` option** for apps served from a subfolder (`<Router base="/docs">`).
@@ -28,10 +30,14 @@ handful of features every real app needs.
   imported from client components in RSC setups such as the Next.js App Router.
 - **React 19 support** — the peer range is now `^18.2.0 || ^19.0.0`, and CI runs the
   suite against both.
-- **Real test suite** — 69 tests covering the core and actual React renders,
+- **Real test suite** — 70 tests covering the core and actual React renders,
   including StrictMode, up from 3 tests that only exercised the matcher.
-- **CI** — lint, typecheck, tests on React 18 and 19, build, `publint`, `attw` and a
-  bundle-size budget on every push.
+- **Integration test** — `npm run test:integration` packs the library with `npm pack`,
+  installs that tarball into `integration-test/` like a real consumer, then typechecks
+  and renders against it. It is the only check that exercises the `exports` map, the
+  generated `.d.ts` files and the `'use client'` banner through a real resolution path.
+- **CI** — lint, typecheck, tests on React 18 and 19, build, `publint`, `attw`, a
+  bundle-size budget and the integration test on every push.
 
 ### Changed
 

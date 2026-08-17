@@ -1,0 +1,23 @@
+{
+    "name": "tiger-router-integration-test",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Consumes the packed tarball exactly like a real app would.",
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run"
+    },
+    "devDependencies": {
+        "@testing-library/react": "^16.3.2",
+        "@types/node": "^22.10.0",
+        "@types/react": "^19.2.0",
+        "@types/react-dom": "^19.2.0",
+        "@vitejs/plugin-react": "^6.0.5",
+        "happy-dom": "^20.11.2",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "typescript": "^5.9.3",
+        "vitest": "^4.1.10"
+    }
+}

@@ -3,6 +3,7 @@ dist
 demo-dist
 coverage
 *.tgz
+integration-test/.pack
 
 # Logs
 logs

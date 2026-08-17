@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { StrictMode } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { useLocation, useNavigate, useParams, useSearchParams } from './hooks'
+import { useLocation, useNavigate, useParams, useRouter, useSearchParams } from './hooks'
 import { Link } from './Link'
 import { Navigate } from './Navigate'
 import { NavLink } from './NavLink'
@@ -416,6 +416,23 @@ describe('hooks', () => {
 
         fireEvent.click(screen.getByText('search'))
         expect(screen.getByText('q: tiger')).toBeTruthy()
+    })
+
+    it('useRouter separates the app basename from the route base', () => {
+        function Show() {
+            const { basename, routeBase } = useRouter()
+            return <p>{`${basename} | ${routeBase}`}</p>
+        }
+
+        render(
+            <Router mode="memory" initialPath="/settings/profile" base="/docs">
+                <Routes>
+                    <Route path="/settings/*" element={<Show />} />
+                </Routes>
+            </Router>
+        )
+
+        expect(screen.getByText('/docs | /settings')).toBeTruthy()
     })
 
     it('throws a helpful error outside <Router>', () => {

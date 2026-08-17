@@ -150,8 +150,16 @@ export function useMatch(pattern: string): RouteMatch | null {
     )
 }
 
-/** Escape hatch exposing the raw store, for advanced integrations. */
+/**
+ * Escape hatch exposing the raw store, for advanced integrations.
+ *
+ * The two bases are different things, so they get different names:
+ * `basename` is where the whole app is mounted (`<Router base="/docs">`),
+ * `routeBase` is the pathname the enclosing route already consumed, which is
+ * what relative `<Link to>` resolves against.
+ */
 export function useRouter() {
     const { location, history, base } = useRouterContext()
-    return { location, history, base }
+    const route = useRouteContext()
+    return { location, history, basename: base, routeBase: route.base }
 }

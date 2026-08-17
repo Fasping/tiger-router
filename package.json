@@ -52,12 +52,13 @@
         "test": "vitest run",
         "test:watch": "vitest",
         "test:coverage": "vitest run --coverage",
+        "test:integration": "node scripts/integration-test.mjs",
         "lint": "biome check .",
         "lint:fix": "biome check --write .",
         "format": "biome format --write .",
         "size": "size-limit",
         "check:package": "publint && attw --pack .",
-        "verify": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:package && npm run size",
+        "verify": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:package && npm run size && npm run test:integration",
         "prepublishOnly": "npm run verify"
     },
     "peerDependencies": {
